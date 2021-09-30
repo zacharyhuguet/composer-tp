@@ -1,0 +1,16 @@
+{
+    "name": "huguzac/composer-tp",
+    "description": "Small project to learn the composer tool",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "HUGUET Zachary",
+            "email": "huguzac@ndlp.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "monolog/monolog": "^2.3"
+    }
+}
