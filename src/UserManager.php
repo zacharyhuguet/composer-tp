@@ -1,9 +1,9 @@
 <?php
 
-namespace UserManager;
+namespace App;
 
 use PDO;
-use User;
+use App\User;
 
 class UserManager
 {
@@ -21,7 +21,7 @@ class UserManager
 
     public function setDb(PDO $db): UserManager
     {
-        $this->_bd = $bd;
+        $this->_db = $db;
         return $this;
     }
 
@@ -76,7 +76,7 @@ class UserManager
         $ligne = $sth();
     }
 
-    public function readAll(User $user) ////READ ALL
+    public function getAll() ////READ ALL
 
     {
         $userList = array();
