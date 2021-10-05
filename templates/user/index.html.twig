@@ -7,6 +7,34 @@
     <title>{{ title }}</title>
 </head>
 <body>
+<h1>Connexion</h1>
+<form  method="POST" class="form-signin">
+        <input type="emai" name="email" id="inputEmail" class="form-control form-group" placeholder="email" required autofocus>
+        <input type="password" name="password" id="inputPassword" class="form-control form-group" placeholder="password" required autofocus>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+        <a class="btn btn-lg btn-primary btn-block btn-signin" href = Add.php>Add user</a>
+    </form></br></br>
+
+<h1>Liste des utilisateurs</h1>
+<table class="table">
+<thead>
+    <th>Id</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Actions</th>
+</thead>
+
+{% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td><a href="details.php?id={{ user.id }}">Voir</a> <a href="edit.php?id={{ user.id }}">Modifier</a> <a href="remove.php?id={{ user.id }}">Supprimer</a></td>
+    </tr>
+{% endfor %}
+
     
+
+</tr> 
 </body>
 </html>

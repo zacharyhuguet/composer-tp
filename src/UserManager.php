@@ -2,8 +2,8 @@
 
 namespace App;
 
-use PDO;
 use App\User;
+use PDO;
 
 class UserManager
 {
@@ -16,7 +16,7 @@ class UserManager
 
     public function __destruct()
     {
-        unset($this->$db);
+        unset($this->_db);
     }
 
     public function setDb(PDO $db): UserManager
@@ -25,12 +25,11 @@ class UserManager
         return $this;
     }
 
-    public function addUser(User $user) //// ADD
-
+    public function addUser(User $user)
     {
 
         $sql = "INSERT INTO feedback (feedback) VALUES(?);";
-        $stmt = mysqli_prepare($db, $sql);
+        $stmt = mysqli_prepare($this->_db, $sql);
         mysqli_stmt_bind_param($stmt, 's', $id);
 
         mysqli_stmt_execute($stmt);
@@ -76,11 +75,10 @@ class UserManager
         $ligne = $sth();
     }
 
-    public function getAll() ////READ ALL
-
+    public function getAll()
     {
         $userList = array();
-        $request = $this->_db->query('SELECT id,email FROM feedback;');
+        $request = $this->_db->query('SELECT id, email, role FROM users;');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)) {
             $user = new User($ligne);
             $userList[] = $user;
